@@ -1,4 +1,4 @@
-package FSM_V1;
+package FSM_V2;
 
 public class Node {
     Node rA;

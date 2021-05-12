@@ -1,10 +1,10 @@
-package FSM_V1;
+package FSM_V2;
 
 import java.util.Arrays;
 
 public class FSM {
 
-    public static String[] func(String inputString,Node node){
+    public static String[] func(String inputString, Node node){
         String[] str_volgorde = new String[inputString.length()+1];
         str_volgorde[0]="s0";
         String[] F = inputString.split("");
