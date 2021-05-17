@@ -1,25 +1,18 @@
 package FSM_V2;
 
+import java.io.IOException;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Main {
 
-    public static void main(String[] args) {
-        //Formatiev opdracht FSM
-        String f = "BAAB";
+    public static void main(String[] args) throws IOException {
         Node s0 = new Node("s0");
         Node s1 = new Node("s1");
         Node s2 = new Node("s2");
         Node s3 = new Node("s3");
-        s0.setrA(s2);s0.setrB(s1);
-        s1.setrA(s1);s1.setrB(s2);
-        s2.setrB(s3);
-        s3.setrA(s2);s3.setrB(s1);
-        System.out.println(Arrays.toString(FSM.func(f,s0)));
-
-
+        DSL.implement_DSL_Script("src/FSM_V2/DSL.txt",new Node[]{s0,s1,s2,s3});
+        System.out.println(Arrays.toString(FSM.func("BAAB",s0)));
     }
-
-
-
 }

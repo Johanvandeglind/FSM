@@ -1,9 +1,17 @@
 package FSM_V2;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Node {
-    Node rA;
-    Node rB;
     String Name;
+    Map<String, Node> directions = new HashMap<String, Node>();
+    public void putDirections(String key, Node node) {
+        directions.put(key, node);
+    }
+
+    public Map<String, Node> getDirections() {
+        return directions;
+    }
 
     public Node(String name) {
         Name = name;
@@ -11,21 +19,13 @@ public class Node {
     public String getName() {
         return Name;
     }
-    public void setrA(Node rA) {
-        this.rA = rA;
-    }
-
-    public void setrB(Node rB) {
-        this.rB = rB;
-    }
 
     public Node nextNode(String InputLetter){
-        if (InputLetter.equals("A")){
-            return rA;
+        if (directions.containsKey(InputLetter)){
+            return directions.get(InputLetter);
         }
-        else
-        {
-            return rB;
+        else{
+            throw new RuntimeException("Letter "+ InputLetter +" not in Node "+Name);
         }
     }
 }
